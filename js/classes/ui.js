@@ -1,4 +1,4 @@
-import {appointsList} from '../selectors.js';
+import {appointsH1, appointsList} from '../selectors.js';
 import {loadAppointmentInputs, deleteAppointment} from '../functions.js';
 
 class UI {
@@ -37,6 +37,12 @@ class UI {
     showList({ appointments }) {
       //Se puede aplicar deestructuring /recordar p. ej "ev"
       this.clearList();
+
+      if (!appointments.length) {
+        appointsH1.textContent = 'No hay citas, comienza creando una';
+        return;
+      }
+      appointsH1.textContent = 'Administra tus citas';
   
       appointments.forEach((appoint) => {
         const { mascota, propietario, telefono, fecha, hora, sintomas, id } =

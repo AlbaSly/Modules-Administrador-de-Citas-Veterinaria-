@@ -1,16 +1,18 @@
 import Appointments from "./classes/appointments.js";
 import UI from "./classes/ui.js";
 
-import {form, petInput, ownerInput, phoneInput, dateInput, timeInput, sickInput, appointsH1, appointsList, loadEventListenners} from './selectors.js';
+import {
+  form,
+  petInput,
+  ownerInput,
+  phoneInput,
+  dateInput,
+  timeInput,
+  sickInput
+} from "./selectors.js";
 
-const appointmentsList = new Appointments();
-const userInterface = new UI();
-
-export function runApp() {
-    loadEventListenners();
-    loadLocalStorage();
-    userInterface.showList(appointmentsList);
-}
+export const appointmentsList = new Appointments();
+export const userInterface = new UI();
 
 const appointmentObj = {
   mascota: "",
@@ -117,9 +119,13 @@ export function editAppointment(appointment) {
 }
 
 export function loadLocalStorage() {
-    appointmentsList.appointments = JSON.parse(localStorage.getItem('appointsList'))??[];
+  appointmentsList.appointments =
+    JSON.parse(localStorage.getItem("appointsList")) ?? [];
 }
 
 export function updateLocalStorage() {
-    localStorage.setItem('appointsList', JSON.stringify(appointmentsList.appointments));
+  localStorage.setItem(
+    "appointsList",
+    JSON.stringify(appointmentsList.appointments)
+  );
 }
