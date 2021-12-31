@@ -1,5 +1,5 @@
 import {appointsList} from '../selectors.js';
-import {loadAppointmentInputs} from '../functions.js';
+import {loadAppointmentInputs, deleteAppointment} from '../functions.js';
 
 class UI {
     showAlert(msg, type) {
