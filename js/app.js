@@ -1,3 +1,3 @@
-import {runApp} from './functions.js';
+import App from './classes/App.js';
 
-document.addEventListener("DOMContentLoaded", runApp);
+const main = new App();
